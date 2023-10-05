@@ -22,6 +22,12 @@
   font-display: swap;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -36,16 +42,15 @@
 }
 
 body {
+  position: relative;
   background-color: #FEAFC3;
   display: flex;
   flex-direction: column;
   min-height: 100%;
   margin: 0;
-
   font-family: "Inter", sans-serif;
   font-size: 16px;
   line-height: 22px;
-
 }
 
 html {
@@ -60,7 +65,7 @@ html {
 .page-wrapper {
   width: 1230px;
   margin: 0 auto;
-  padding: 0 28px;  /* 28px = 98px - 70px (стайлгайд, блок "Сетка"). */
+  padding: 0 30px;
   box-sizing: border-box;
 }
 
@@ -74,8 +79,7 @@ html {
 }
 
 .header-logo {
-  height: 55px;
-  /* Высота уменьшена, чтобы outline был более равномерный (визуально снизу слишком много воздуха из-за последнего завитка). */
+  height: 55px; /* Высота уменьшена, чтобы outline был более равномерный (визуально снизу слишком много воздуха из-за последнего завитка). */
   margin-right: 16px;
 }
 
@@ -83,7 +87,7 @@ html {
   opacity: 0.5;
 }
 
-.header-logo:active svg path {
+.header-logo:active path {
   fill: #FCFCFC;
 }
 
@@ -152,17 +156,17 @@ html {
   position: absolute;
   right: 16px;
   top: 11px;
-  height: 16px; /* 16px = кегль шрифта. Устраняет увеличение высоты блока (высота svg больше высоты строки). */
+  height: 16px; /* 16px = кегль шрифта в блоке. Устраняет увеличение высоты блока (высота svg больше высоты строки). */
 }
 
 .nav-wrapper:hover .dropable-svg path,
 .nav-wrapper:focus-within .dropable-svg path {
-  fill: white;
+  fill: #ffffff;
 }
+
 .nav-wrapper:hover .dropable-svg,
 .nav-wrapper:focus-within .dropable-svg {
-  rotate: 180deg;
-  transform: translate(0,-1px);
+  transform: rotate(180deg) translate(0,-1px);
 }
 
 .nav-wrapper {
@@ -171,7 +175,7 @@ html {
 
 .nav-wrapper:hover {
   border-radius: 30px;
-  color: white;
+  color: #ffffff;
   height: min-content;
 }
 
@@ -191,7 +195,7 @@ html {
 }
 
 .nav-item-dropable:active > .nav-link-dropable {
-  color: white;
+  color: #ffffff;
 }
 
 .nav-link-dropable {
@@ -214,7 +218,7 @@ html {
   display: block;
 }
 
-.submenu-wrapper { /* Для заполнения промежутка м/у пунктомшапки и его всплывающим элементом. */
+.submenu-wrapper { /* Для заполнения визуального разрыва м/у пунктом шапки и его всплывающим элементом. */
   position: absolute;
   display: none;
 }
@@ -357,9 +361,8 @@ html {
 }
 
 .header-basket {
-  margin-right: 7px;
   position: relative;
-  padding-left: 35px;
+  padding-left: 38px;
 }
 
 .header-basket-icon {
@@ -370,7 +373,7 @@ html {
 
 .nav-wrapper:hover .header-active {
   background-color: #FF4A78;
-  color: white;
+  color: #ffffff;
 }
 
 .nav-wrapper:hover .header-active svg path {
@@ -379,11 +382,11 @@ html {
 
 .nav-wrapper:focus-visible {
   background-color: #FF4A78;
-  outline: 2px solid black;
+  outline: 2px solid #2D3440;
 }
 
 .nav-wrapper:focus-within {
-  color: white;
+  color: #ffffff;
 }
 
 .nav-wrapper:focus-visible .header-active svg path {
@@ -391,7 +394,7 @@ html {
 }
 
 .nav-wrapper:focus-within .header-active-svg path {
-  fill: white;
+  fill: #ffffff;
 }
 
 .header-active:active {
@@ -399,12 +402,12 @@ html {
 }
 
 .header-active:focus-visible {
-  outline: 2px solid black;
+  outline: 2px solid #2D3440;
   background-color: #FF4A78;
 }
 
 .header-active:focus-visible svg path {
-  fill: white;
+  fill: #ffffff;
 }
 
 .popover {
@@ -620,6 +623,7 @@ html {
   position: absolute;
   top: 8px;
   right: 0;
+  display: none; /* По умолчанию; для проверки отключить. */
 }
 
 .header-basket ~ .popover-wrapper {
@@ -662,9 +666,17 @@ html {
   margin-right: auto;
 }
 
-.basket-photo {grid-area: A;}
-.basket-name  {grid-area: B;}
-.basket-price {grid-area: C;}
+.basket-photo {
+  grid-area: A;
+}
+
+.basket-name  {
+  grid-area: B;
+}
+
+.basket-price {
+  grid-area: C;
+}
 
 .basket-goods:focus-visible {
   border-radius: 2px;
@@ -736,7 +748,7 @@ html {
   display: grid;
   grid-template-columns: 515px auto;
   grid-template-areas:
-    "hero-text hero-slider"
+    "hero-text hero-wrapper"
     "hero-bullets hero-socials";
   margin-bottom: 80px;
 }
@@ -751,20 +763,24 @@ html {
   display: block;
 }
 
+.hero-wrapper {
+  grid-area: hero-wrapper;
+  position: relative;
+}
+
 .hero-slider {
-  grid-area: hero-slider;
   list-style: none;
   margin: 0;
   padding-top: 20px;
+  padding-left: 25px;
   gap: 45px;
   position: relative;
   display: flex;
-  /* align-items: center; */
   overflow: hidden;
 }
 
 .hero-caption {
-  margin-top: 66px; /* 136px по макету минус 70px padding-top контейнера. */
+  margin-top: 66px;
   margin-bottom: 25px;
   color: #2D3440;
   font-size: 36px;
@@ -821,14 +837,14 @@ html {
 
 .hero-item-active {
   padding-top: 0;
+  margin-right: 17px;
 }
 
 
 .hero-item::after {
   content: "";
   display: block;
-    background-color: #FFCBD8;
-  /* background-color: limegreen; */
+   background-color: #FFCBD8;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -839,21 +855,13 @@ html {
 .hero-item-active.hero-item::after {
   content: "";
   display: block;
-    background-color: #FFCBD8;
-  /* background-color: aqua; */
-  width: 315px; /* Не совсем по макету, но лучше всего совпадает с PP. */
+  background-color: #FFCBD8;
+  width: 327px;
   height: 315px;
   transform: translate(4px,-412px);
 }
 
-
-
 .hero-item .hero-photo {
-/*   background-color: #FFCBD8;
-  border-radius: 50%; */
-/*   width: 100px; */
-/*   height: 100px; */
-/* position: relative; */
   opacity: 0.4;
   width: 100px;
   height: 150px;
@@ -869,6 +877,7 @@ html {
   width: initial;
   height: initial;
   opacity: 1;
+  margin-left: 4px;
 }
 
 .hero-photo {
@@ -924,7 +933,7 @@ html {
 
 .btn-slider-left {
   top: 259px;
-  left: 27px;
+  left: 11px;
 }
 
 .btn-slider-right {
@@ -975,8 +984,7 @@ html {
   display: flex;
   gap: 16px;
   justify-self: end;
-  padding-top: 4px; /* Для подгонки под PP. */
-  margin-right: 4px; /* Для подгонки под PP. */
+  padding-top: 4px; /* Подгонка под PP. */
 }
 
 .social-link {
@@ -990,7 +998,8 @@ html {
 
 .main-subcaption {
   display: block;
-  margin: 0 0 55px 0;
+  margin: 0;
+  margin-bottom: 55px;
   padding: 0 55px;
   color: #2D3440;
   font-size: 32px;
@@ -1064,22 +1073,22 @@ html {
 .card::before {
   content: "";
   position: absolute;
-  margin-top: 50px;
-  height: calc(100% - 50px);
+  margin-top: 52px;
+  height: calc(100% - 52px);
   width: 100%;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 8px;
   z-index: -1;
 }
 
 .card-photo {
   border-radius: 50%;
-  margin: 0 11px 12px 11px; /* 16px по макету, 12px по PP. */
+  margin: 0 11px 12px 11px; /* 16px по макету, 12px подгонка под PP. */
+  box-shadow: 0 4px 12px rgba(45, 52, 64, 0.10);
 }
 
 .card-link {
   grid-column: span 2;
-  /* grid-row: 1; */
   text-align: center;
   text-decoration: none;
 }
@@ -1195,7 +1204,7 @@ html {
 .feature::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -1px; /* Подгонка под PP. */
   left: 0;
   border: 2px solid #2D3440;
   border-radius: 50%;
@@ -1210,7 +1219,7 @@ html {
 .feature-temperature:after {
   transform: scale(1.3);
   position: absolute;
-  top: 0;
+  top: -1px; /* Подгонка под PP. */
   left: 0;
   width: 48px;
   height: 48px;
@@ -1274,7 +1283,6 @@ html {
   margin: 0;
 }
 
-
 .main-subscribe {
   width: 570px;
   padding: 6px;
@@ -1308,10 +1316,11 @@ html {
 
 .main-delivery {
   background-image: url("../images/index/delivery-background.jpg");
-  position: top right;
+  background-position: top right;
   background-repeat: no-repeat;
   background-color: #F2F2F2;
   padding: 64px 64px 64px 100px;
+  border-radius: 16px;
   margin-bottom: 80px;;
   display: flex;
   gap: 64px;
@@ -1344,18 +1353,18 @@ html {
   flex-wrap: wrap;
   width: 500px;
   padding: 40px;
+  padding-bottom: 42px;
   box-sizing: border-box;
   background-color: #FCFCFC;
   box-shadow: 0 15px 40px 0 rgba(45, 52, 64, 0.12);
   border-radius: 8px;
-  margin-right: 4px; /* Подгонка под PP. */
 }
 
 .delivery-form-text {
   color: #565C66;
   font-size: 16px;
   line-height: 22px;
-  margin-bottom: 32px;
+  margin-bottom: 31px;
 }
 
 .label {
@@ -1386,6 +1395,64 @@ html {
   width: 420px;
 }
 
+.label-caption {
+  display: flex;
+}
+
+.label-tooltip {
+  display: block;
+  position: relative;
+  top: 2px;
+  left: 3px;
+  padding-right: 10px; /* Для бесшовного перехода курсора на всплывающий тултип. */
+}
+
+.label-tooltip:focus-visible {
+  outline: none; /* Outline отключен, т.к. при фокусе на элементе пользователь сразу видит изменение связанного с ним участка страницы (появление тултипа). */
+}
+
+.tooltip-wrapper {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  padding-left: 5px;
+  display: none;
+}
+
+.tooltip-body {
+  position: relative;
+  width: max-content;
+  padding: 10px 8px;
+  background-color: #FCFCFC;
+  border: 1px solid #B9B9B9;
+  border-radius: 1px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(194, 194, 194, 0.20);
+  color: #565C66;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.tooltip-body::before {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  border-left: 1px solid #B9B9B9;
+  border-bottom: 1px solid #B9B9B9;
+  left: -6px;
+  top: 13px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+
+.label-tooltip:hover .tooltip-wrapper,
+.label-tooltip:focus-visible .tooltip-wrapper,
+.tooltip-wrapper:hover {
+  display: block;
+}
+
 .delivery-form .btn-additional {
 margin-left: auto;
 margin-right: auto;
@@ -1407,13 +1474,14 @@ margin-right: auto;
   width: 343px;
   margin-right: auto;
   padding: 40px;
+  padding-bottom: 42px; /* Подгока под PP. */
   box-sizing: border-box;
   background-color: #FCFCFC;
   box-shadow: 0 8px 16px 0 rgba(45, 52, 64, 0.12);
 }
 
 .feedback-title {
-  margin-top: 1px; /* Подгонка под PP, по макету 0.*/
+  margin-top: 0;
   margin-bottom: 12px;
   color: #565C66;
   font-size: 16px;
@@ -1437,7 +1505,7 @@ margin-right: auto;
   font-weight: 700;
   line-height: 24px;
   text-decoration: none;
-  margin-top: 12px; /* Отступ сверху – потому что может добавиться новый телефон и с подписью снизу, и без подписи. */
+  margin-top: 12px; /* Отступ сверху – т.к. может добавиться новый телефон и с подписью снизу, и без подписи. */
   width: min-content;
 }
 
@@ -1555,7 +1623,7 @@ margin-right: auto;
   background-color: rgba(252, 252, 252, 0.3);
   min-height: 36px;
   margin: 0;
-  padding: 8px 19px; /* По макету д.б. 8px 24px. */
+  padding: 8px 18px; /* По макету д.б. 8px 24px. */
   box-sizing: border-box;
   border: none;
   border-radius: 20px;
@@ -1586,7 +1654,7 @@ margin-right: auto;
 .filted-dropable::after {
   content: url(../images/arrow-down.svg);
   position: absolute;
-  right: 13px;
+  right: 14px;
   bottom: 5px;
 }
 
@@ -1606,7 +1674,7 @@ margin-right: auto;
 }
 
 .filter-range:focus-within {
-  outline: 2px solid white;
+  outline: 2px solid #ffffff;
 }
 
 .range-baseline {
@@ -1675,7 +1743,7 @@ margin-right: auto;
 
 .filter-fieldset-radio:focus-within,
 .filter-fieldset-checkbox:focus-within {
-  outline: 2px solid white;
+  outline: 2px solid #ffffff;
 }
 
 .filter-fieldset-radio:hover,
@@ -1708,12 +1776,14 @@ margin-right: auto;
 
 .radio-on,
 .checkbox-on {
-  opacity: 0; /* По умолчанию отображаются как выключенные. */
+  opacity: 0; /* По умолчанию псевдо-переключатели отображаются как выключенные.
+                 Когда пользователь их "включает", имитация "выключенного"
+                 становится прозрачной, а имитация "включенного" – наоборот. */
 }
 
 .filter-radio:hover svg path,
 .filter-checkbox:hover svg path {
-  fill: white;
+  fill: #ffffff;
 }
 
 .radio:checked ~ .radio-on,
@@ -1798,59 +1868,44 @@ margin-right: auto;
 
 .catalog-pages {
   display: flex;
-  margin-bottom: 40px;
+  margin-bottom: 42px;
   padding: 41px 0;
   position: relative;
 }
 
 .catalog-pages .btn-basic {
-  position: absolute; /* Ширина пагинации справа от блока не задана жестко, компенсировать ее равным отступом слева нельзя. Поэтому кнопка центрируется вне потока. */
+  position: absolute; /* Ширина пагинации справа от блока не задана жестко, компенсировать ее таким же отступом слева нельзя. Поэтому кнопка центрируется вне потока. */
   top: 41px;
   left: 50%;
-  /* transform: translateX(-50%); */ /* Выравнивает кнопку по центру страницы */
   transform: translateX(calc(-50% - 10px)); /* Подгонка под PP, */
 }
 
-.paginator {
-  list-style: none;
+.paginator-wrapper {
   display: flex;
-  min-width: 1px; /* Чтобы сработал margin-left: auto. */
   margin-left: auto;
-  max-width: 25%; /* Предоствращает наезд на кнопку "Показать еще". */
+  max-width: 264px; /* Предоствращает наезд на кнопку "Показать еще"; ширина приближена к ширине карточки (визуально самый близкий блок с видимой шириной). */
   margin-top: 11px;
   margin-bottom: 8px;
 }
 
-/* .page {
-  display: block;
-  width: 24px;
-  height: 24px;
-  text-align: center;
-  padding-top: 2px;
-  box-sizing: border-box;
-  color: #2D3440;
-  font-size: 16px;
-  line-height: 20px;
+.paginator-body {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 .page-link {
   display: block;
-
-}
-
-.page-link:focus-visible {
-  outline: 2px solid lime;
-  border-radius: 50%;
-} */
-
-.page-link {
-  display: block;
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   text-align: center;
   padding-top: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
   box-sizing: border-box;
-  border-radius: 50%;
+  border-radius: 12px;
   color: #2D3440;
   font-size: 16px;
   line-height: 20px;
@@ -1882,12 +1937,11 @@ margin-right: auto;
 }
 
 .page-next {
-  margin-right: 4px;
-  margin-left: 7px;
+  margin-left: 8px;
 }
 
 .page-prev {
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 .page-change-link {
@@ -1897,19 +1951,84 @@ margin-right: auto;
 }
 
 .page-change-link:hover path {
-  fill: white;
+  fill: #ffffff;
 }
 
 .page-change-link:focus-visible {
-  outline: 2px solid black;
+  outline: 2px solid #2D3440;
 }
 
 .page-disabled {
   opacity: 0.3;
 }
 
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 0;
+  background-color: rgba(45, 52, 64, 0.3);
+  z-index: 200;
+  display: none; /* Для включения модального окна изменить значение на block. */
+}
 
+.modal-frame {
+  position: fixed;
+  top: calc(calc(100vh / 2) - 284px);
+  left: calc(50vw - (570px / 2) - 10px); /* 10px - подгонка под PP. */
+  background-color: #FCFCFC;
+  width: 570px;
+  padding: 64px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
 
+.modal-caption {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 700;
+  max-width: 440px;
+  margin-bottom: 30px;
+}
+
+.modal-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.modal-fields .input {
+  width: 442px;
+  padding-right: 16px;
+}
+
+.input-textarea {
+  height: 149px;
+  resize: none;
+}
+
+.modal-form .btn-additional {
+  position: relative;
+  left: 292px;
+}
+
+.btn-closemodal {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 9px 9px 6px 9px; /* Снизу уменьшен для более равномерного outline. */
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-closemodal:focus-visible {
+  outline: 2px solid #2D3440;
+}
 
 
 /* footer  */
@@ -2008,8 +2127,11 @@ margin-right: auto;
   border-radius: 2px;
 }
 
-.sublist-spaced { /* Задает отступ слева всему списку, в котором один из элементов – с иконкой. */
-  margin-left: 24px;
+.sublist-spaced {
+  margin-left: 24px; /* Задает отступ слева всему списку,
+                        в котором один из элементов – с иконкой.
+                        Предполагается, что этот стиль будет применяться
+                        к списку (спискам), в которых есть отмеченный иконкой пункт.*/
 }
 
 .footer-important {
@@ -2022,8 +2144,8 @@ margin-right: auto;
 .footer-important::before {
   content: url("../images/heart.svg");
   position: absolute;
-  left: 0;
-  top: 2px;
+  left: 1.5px;
+  top: 1.5px;
   height: 16px;
 }
 
@@ -2035,10 +2157,13 @@ margin-right: auto;
   display: flex;
   flex-direction: column;
   width: 200px;
+  margin-left: 93px;
+  padding-left: 7px;
+  box-sizing: border-box;
 }
 
 .footer-academy {
-  margin-bottom: 14px;
+  margin-bottom: 13px;
 }
 
 .footer-academylogo {
