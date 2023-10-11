@@ -169,7 +169,7 @@
                   <ul class="basket-list">
                     <li class="basket-item">
                       <a class="basket-goods" href="#">
-                        <img class="basket-photo" src="images/goods-small/goods-small-sku0001-malinka.jpg" width="46" height="46"
+                        <img class="basket-photo" src="images/goods-small/goods-small-sku0001-raspberry.jpg" width="46" height="46"
                           alt="Малинка">
                         <div class="basket-name">Малинка</div>
                         <div class="basket-price">1&nbsp;кг&nbsp;х 310&nbsp;₽</div>
@@ -280,20 +280,19 @@
 
           <ul class="hero-bullets">
             <li>
-              <a class="hero-bullet bullet-current" href="#">
+              <button class="hero-bullet bullet-current" type="button">
                 <span class="visually-hidden">Текущий промо-блок</span>
-              </a>
-              <!-- Ссылка вместо кнопки – на случай, если скрипты не работают, ссылка может вести на копию главной страницы, где уже задействован нужный блок hero.-->
+              </button>
             </li>
             <li>
-              <a class="hero-bullet" href="#">
+              <button class="hero-bullet" type="button">
                 <span class="visually-hidden">Перелистнуть промо-блок</span>
-              </a>
+              </button>
             </li>
             <li>
-              <a class="hero-bullet" href="#">
+              <button class="hero-bullet" type="button">
                 <span class="visually-hidden">Перелистнуть промо-блок</span>
-              </a>
+              </button>
             </li>
           </ul>
 
@@ -353,7 +352,7 @@
           <ul class="main-cards">
             <li class="card">
               <a class="card-link" href="#">
-                <img class="card-photo" src="images/goods/goods-sku0001-malinka.jpg" width="168" height="168" alt="Фото мороженого Малинка.">
+                <img class="card-photo" src="images/goods/goods-sku0001-raspberry.jpg" width="168" height="168" alt="Фото мороженого Малинка.">
                 <div class="card-caption">Малинка</div>
                 <div class="card-description">Сливочное мороженое с&nbsp;малиновым джемом</div>
               </a>
@@ -366,7 +365,7 @@
             </li>
             <li class="card">
               <a class="card-link" href="#">
-                <img class="card-photo" src="images/goods/goods-sku0002-fistashka.jpg" width="168" height="168" alt="Фото мороженого Фисташка.">
+                <img class="card-photo" src="images/goods/goods-sku0002-pistachio.jpg" width="168" height="168" alt="Фото мороженого Фисташка.">
                 <div class="card-caption">Фисташка</div>
                 <div class="card-description">Фисташковый пломбир с&nbsp;кусочками шоколада</div>
               </a>
@@ -379,7 +378,7 @@
             </li>
             <li class="card">
               <a class="card-link" href="#">
-                <img class="card-photo" src="images/goods/goods-sku0003-chernika.jpg" width="168" height="168" alt="Фото мороженого Черника.">
+                <img class="card-photo" src="images/goods/goods-sku0003-blueberry.jpg" width="168" height="168" alt="Фото мороженого Черника.">
                 <div class="card-caption">Черника</div>
                 <div class="card-description">Крем-брюле
                   с&nbsp;черничным джемом</div>
@@ -459,7 +458,7 @@
               <div class="label label-date">
                 <div class="label-caption">
                   <div class="label-name">Дата</div>
-                  <a class="label-tooltip" href="">
+                  <button class="label-tooltip" type="button">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00027 2.33333C4.87051 2.33333 2.33333 4.87051 2.33333 8.00027C2.33333 11.13 4.87051 13.6672 8.00027 13.6672C11.13 13.6672 13.6672 11.13 13.6672 8.00027C13.6672 4.87051 11.13 2.33333 8.00027 2.33333ZM1 8.00027C1 4.13413 4.13413 1 8.00027 1C11.8664 1 15.0005 4.13413 15.0005 8.00027C15.0005 11.8664 11.8664 15.0005 8.00027 15.0005C4.13413 15.0005 1 11.8664 1 8.00027ZM8.00006 7.33332C8.36825 7.33332 8.66672 7.6318 8.66672 7.99999V10.5334C8.66672 10.9016 8.36825 11.2001 8.00006 11.2001C7.63187 11.2001 7.33339 10.9016 7.33339 10.5334V7.99999C7.33339 7.6318 7.63187 7.33332 8.00006 7.33332ZM8.00006 4.79989C7.63187 4.79989 7.33339 5.09836 7.33339 5.46655C7.33339 5.83474 7.63187 6.13322 8.00006 6.13322H8.00672C8.37491 6.13322 8.67339 5.83474 8.67339 5.46655C8.67339 5.09836 8.37491 4.79989 8.00672 4.79989H8.00006Z" fill="#2D3440"/>
                     </svg>
@@ -469,7 +468,7 @@
                         в&nbsp;любой день, с&nbsp;8:00 до&nbsp;20:00
                       </div>
                     </div>
-                  </a>
+                  </button>
                 </div>
                 <input class="input input-date" type="text" id="delivery-date" name="delivery-date" placeholder="01.04.2020" required>
               </div>
@@ -479,17 +478,17 @@
               <div class="label label-address">
                 <div class="label-caption">
                   <div class="label-name">Адрес</div>
-                  <a class="label-tooltip" href="">
+                  <button class="label-tooltip" type="button">
                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00027 2.33333C4.87051 2.33333 2.33333 4.87051 2.33333 8.00027C2.33333 11.13 4.87051 13.6672 8.00027 13.6672C11.13 13.6672 13.6672 11.13 13.6672 8.00027C13.6672 4.87051 11.13 2.33333 8.00027 2.33333ZM1 8.00027C1 4.13413 4.13413 1 8.00027 1C11.8664 1 15.0005 4.13413 15.0005 8.00027C15.0005 11.8664 11.8664 15.0005 8.00027 15.0005C4.13413 15.0005 1 11.8664 1 8.00027ZM8.00006 7.33332C8.36825 7.33332 8.66672 7.6318 8.66672 7.99999V10.5334C8.66672 10.9016 8.36825 11.2001 8.00006 11.2001C7.63187 11.2001 7.33339 10.9016 7.33339 10.5334V7.99999C7.33339 7.6318 7.63187 7.33332 8.00006 7.33332ZM8.00006 4.79989C7.63187 4.79989 7.33339 5.09836 7.33339 5.46655C7.33339 5.83474 7.63187 6.13322 8.00006 6.13322H8.00672C8.37491 6.13322 8.67339 5.83474 8.67339 5.46655C8.67339 5.09836 8.37491 4.79989 8.00672 4.79989H8.00006Z" fill="#2D3440"/>
-                     </svg>
-                     <div class="tooltip-wrapper">
-                    <div class="tooltip-body">
-                      Введите название <br>
-                      улицы, дома и&nbsp;квартиры
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.00027 2.33333C4.87051 2.33333 2.33333 4.87051 2.33333 8.00027C2.33333 11.13 4.87051 13.6672 8.00027 13.6672C11.13 13.6672 13.6672 11.13 13.6672 8.00027C13.6672 4.87051 11.13 2.33333 8.00027 2.33333ZM1 8.00027C1 4.13413 4.13413 1 8.00027 1C11.8664 1 15.0005 4.13413 15.0005 8.00027C15.0005 11.8664 11.8664 15.0005 8.00027 15.0005C4.13413 15.0005 1 11.8664 1 8.00027ZM8.00006 7.33332C8.36825 7.33332 8.66672 7.6318 8.66672 7.99999V10.5334C8.66672 10.9016 8.36825 11.2001 8.00006 11.2001C7.63187 11.2001 7.33339 10.9016 7.33339 10.5334V7.99999C7.33339 7.6318 7.63187 7.33332 8.00006 7.33332ZM8.00006 4.79989C7.63187 4.79989 7.33339 5.09836 7.33339 5.46655C7.33339 5.83474 7.63187 6.13322 8.00006 6.13322H8.00672C8.37491 6.13322 8.67339 5.83474 8.67339 5.46655C8.67339 5.09836 8.37491 4.79989 8.00672 4.79989H8.00006Z" fill="#2D3440"/>
+                      </svg>
+                      <div class="tooltip-wrapper">
+                      <div class="tooltip-body">
+                        Введите название <br>
+                        улицы, дома и&nbsp;квартиры
+                      </div>
                     </div>
-                  </div>
-                  </a>
+                 </button>
                 </div>
                 <input class="input input-address" type="text" id="delivery-addtess" name="delivery-addtess" placeholder="ул. Большая Конюшенная, 19/8" required>
               </div>
