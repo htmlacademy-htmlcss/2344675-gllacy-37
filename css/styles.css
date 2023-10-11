@@ -159,8 +159,8 @@ html {
   height: 16px; /* 16px = кегль шрифта в блоке. Устраняет увеличение высоты блока (высота svg больше высоты строки). */
 }
 
-.nav-wrapper:hover .dropable-svg path,
-.nav-wrapper:focus-within .dropable-svg path {
+.nav-wrapper:hover path,
+.nav-wrapper:focus-within path {
   fill: #ffffff;
 }
 
@@ -1742,8 +1742,8 @@ margin-right: auto;
   outline: 1px solid #2d3440;
 }
 
-.filter-fieldset-radio:disabled svg path,
-.filter-fieldset-checkbox:disabled svg path {
+.filter-fieldset-radio:disabled path,
+.filter-fieldset-checkbox:disabled path {
   fill: rgb(45, 52, 64, 0.3);
 }
 
@@ -1787,8 +1787,8 @@ margin-right: auto;
                  становится прозрачной, а имитация "включенного" – наоборот. */
 }
 
-.filter-radio:hover svg path,
-.filter-checkbox:hover svg path {
+.filter-radio:hover path,
+.filter-checkbox:hover path {
   fill: #ffffff;
 }
 
@@ -2072,7 +2072,7 @@ margin-right: auto;
   height: 24px;
 }
 
-.social-link svg path {
+.social-link path {
   fill: #fcfcfc;
 }
 
@@ -2178,7 +2178,7 @@ margin-right: auto;
   line-height: 12px;
 }
 
-.footer-academylogo svg path {
+.footer-academylogo path {
   fill: #2d3440;
 }
 
@@ -2186,7 +2186,7 @@ margin-right: auto;
   opacity: 0.5;
 }
 
-.footer-academylogo:active svg path {
+.footer-academylogo:active path {
   fill: #fcfcfc;
 }
 
