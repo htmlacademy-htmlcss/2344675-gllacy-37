@@ -159,8 +159,8 @@ html {
   height: 16px; /* 16px = кегль шрифта в блоке. Устраняет увеличение высоты блока (высота svg больше высоты строки). */
 }
 
-.nav-wrapper:hover path,
-.nav-wrapper:focus-within path {
+.nav-wrapper:hover .dropable-svg-path,
+.nav-wrapper:focus-within .dropable-svg-path {
   fill: #ffffff;
 }
 
