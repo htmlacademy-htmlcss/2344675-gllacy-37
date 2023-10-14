@@ -376,7 +376,7 @@ html {
   color: #ffffff;
 }
 
-.nav-wrapper:hover .header-active svg path {
+.nav-wrapper:hover .header-active-path {
   fill: #fcfcfc;
 }
 
@@ -389,11 +389,11 @@ html {
   color: #ffffff;
 }
 
-.nav-wrapper:focus-visible .header-active svg path {
+.nav-wrapper:focus-visible .header-active-path {
   fill: #fcfcfc;
 }
 
-.nav-wrapper:focus-within .header-active-svg path {
+.nav-wrapper:focus-within .header-active-path {
   fill: #ffffff;
 }
 
@@ -406,7 +406,7 @@ html {
   background-color: #ff4a78;
 }
 
-.header-active:focus-visible svg path {
+.header-active:focus-visible .header-active-path {
   fill: #ffffff;
 }
 
@@ -454,7 +454,6 @@ html {
   line-height: 20px;
   color: #2d3440;
   font-family: inherit;
-
 }
 
 .input::placeholder {
